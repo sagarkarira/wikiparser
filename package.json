@@ -1,0 +1,25 @@
+{
+  "author"          : "Zhipeng Jiang <zhipeng@stoic.com>",
+  "name"            : "wikiparser",
+  "version"         : "0.0.1",
+  "readme"          : "README.md",
+  "main"            : "parser.js",
+  "repository"      : {
+    "type"          : "git",
+    "url"           : "https://github.com/jesusjzp/wikiparser.git"
+  },
+  "engines"         : {
+    "node"          : "*",
+    "npm"           : "*"
+  },
+  "dependencies"    : {
+    "async"         : "*",
+    "http"          : "*",
+    "jsdom"         : "*",
+    "jquery"        : "*",
+    "request"       : "*",
+    "xlsx"          : "*"
+  },
+  "devDependencies" : {
+  }
+}
