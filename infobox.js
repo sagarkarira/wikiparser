@@ -2,23 +2,25 @@ var myUtil = require('./myUtil.js'),
     async  = require('async');
 
 async.series([
-
   function(callback) {
     url = 'http://en.wikipedia.org/w/api.php?' + 
           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
-          'Japan';
+          'France';
 
     myUtil.get(url, function(url, content, status) {
       var json = eval('(' + content + ')').query.pages;
-      var key = null;
+      var key  = null;
       for (var i in json) { key = i; break; }
       if (key != -1) {wikiText = json[key].revisions[0]['*'];}
       callback(wikiText);
     });
+
   }
 ], function(msg) {
+
   var reg = new RegExp("{{Infobox(.|\n)*\n}}", "g");
   var text = reg.exec(msg)[0];
+
   text = replaceAll('<!--.*-->', '', text);
   text = replaceAll('<ref.*(/>|>.*</ref>)', '', text);
   text = replaceAll('<[^>]+>', '', text);
@@ -26,9 +28,10 @@ async.series([
 
   text.split('\n|').forEach(function(item) {
     var temp = item.split(' = ');
+
     if (temp.length === 2 && temp[1].trim() !== '') {
-      var item_name = temp[0].trim();
-      var item_content = temp[1].trim();
+      var item_name    = temp[0].trim(),
+          item_content = temp[1].trim();
       var find = item_content.match(/(\[\[).*?(\]\])/g);
       if (find) {
         find.forEach(function(substring) {
@@ -46,7 +49,6 @@ async.series([
       console.log(item_name, ':', item_content);
     }
   });
-
 });
 
 function replaceAll(find, replace, str) {
