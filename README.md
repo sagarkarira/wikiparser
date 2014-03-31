@@ -35,4 +35,6 @@ Particularly, this parser only works for Infobox.
 
 ## Reference
 
+- [Wikipedia API](http://en.wikipedia.org/w/api.php)
+
 - [Syntax of Wiki Markup](http://en.wikipedia.org/wiki/Help:Wiki_markup)
