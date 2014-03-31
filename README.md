@@ -11,7 +11,7 @@ Particularly, this parser only works for Infobox.
 
 ## Run
 
-  node infobox.js
+	node infobox.js
 
 ## Result
 
