@@ -15,10 +15,7 @@
   "dependencies"    : {
     "async"         : "*",
     "http"          : "*",
-    "jsdom"         : "*",
-    "jquery"        : "*",
-    "request"       : "*",
-    "xlsx"          : "*"
+    "request"       : "*"
   },
   "devDependencies" : {
   }

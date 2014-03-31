@@ -1,10 +1,9 @@
-Wikipedia [API](http://en.wikipedia.org/w/api.php) parser
+[Wikipedia API](http://en.wikipedia.org/w/api.php) parser
 ======
 
 A simple parser in node.js for wikipedia markdown text.
 
-Install
-======
+## Install
 
 	npm install
 
