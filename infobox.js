@@ -122,7 +122,6 @@ async.series([
         }
       }
 
-      // console.log('heck', item_content.match(/\{\{efn[^\}\}]*?\}\}/g));
       item_content = replaceAll('&nbsp', ' ', item_content);
       item_content = replaceAll('\n\}\}', '', item_content);
       console.log(item_name, ':', item_content);
