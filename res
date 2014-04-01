@@ -1,87 +1,35 @@
-conventional_long_name : People's Republic of China
-native_name : {{vunblist|{{nobold|{{lang|zh-hans|中华人民共和国}} |''Zhōnghuá Rénmín Gònghéguó''}}}}
-common_name : the People's Republic of China
-image_flag : Flag of the People's Republic of China.svg
-image_coat : National Emblem of the People's Republic of China.svg
-symbol_type : National Emblem
-image_map : People's Republic of China (orthographic projection).svg
-map_caption : Area controlled by the People's Republic of China shown in dark green; claimed but uncontrolled regions shown in light green.
-map_width : 220px
-national_anthem : {{vunblist|{{lang|zh-hans|《义勇军进行曲》 |''Yìyǒngjūn Jìnxíngqǔ''{{nbsp|2(Pinyin)}} |"March of the Volunteers"}} }} center
-official_languages : Standard Chinese
-languages_type : Official written language
-languages : Vernacular Chinese
-languages_sub : yes
-languages2_type : Official script
-languages2 : Simplified Chinese
-languages2_sub : yes
-regional_languages : Mongolian ,Tibetan ,Uyghur ,Zhuang ,various others
-ethnic_groups =
-
-{{vunblist
-  | 91.51% [[Han Chinese|Han]]
-  | {{collapsible list
-     |title : 55 minorities
-     |1.30% Zhuang |0.86% Manchu |0.79% Uyghur |0.79% Hui |0.72% Miao |0.65% Yi |0.62% Tujia |0.47% Mongol |0.44% Tibetan |0.26% Buyei |0.15% Korean |1.05% others
-    }}
- }}
-capital : Beijing
-largest_city : Shanghai
-demonym : Chinese
-government_type : Single-party socialist republic
-leader_title1 : President
-leader_name1 : Xi Jinping
-leader_title2 : Premier
-leader_name2 : Li Keqiang
-leader_title3 : Congress Chairman
-leader_name3 : Zhang Dejiang
-leader_title4 : Conference Chairman
-leader_name4 : Yu Zhengsheng
-legislature : National People's Congress
-sovereignty_type : Formation
-established_event1 : Unification of China under the Qin Dynasty
-established_date1 : 221 BCE
-established_event2 : Republic established
-established_date2 : 1 January 1912
-established_event3 : People's Republic proclaimed
-established_date3 : 1 October 1949
-area_km2 : 9,596,961
-area_footnote : 
-area_sq_mi : 3,705,407
-area_rank : 3rd/4th
-area_magnitude : 1 E12
-percent_water : 0.28%
-population_estimate : 1,350,695,000
-population_estimate_rank : 1st
-population_estimate_year : 2012
-population_census : 1,339,724,852
-population_census_year : 2010
-population_census_rank : 1st
-population_density_km2 : 2011 estimate: 144
-population_density_sq_mi : 373
-population_density_rank : 83rd
-GDP_nominal : $9.3253 trillion
-GDP_nominal_rank : 2nd
-GDP_nominal_year : 2013
-GDP_nominal_per_capita : $6,853
-GDP_nominal_per_capita_rank : 84th
-GDP_PPP_year : 2013
-GDP_PPP : $14.9614 trillion
-GDP_PPP_rank : 2nd
-GDP_PPP_per_capita : $10,253
-GDP_PPP_per_capita_rank : 91st
-Gini_year : 2012
-Gini : 47.4
-HDI_year : 2012
-HDI_change : increase
-HDI : 0.699
-HDI_rank : 101st
-currency : Renminbi (yuan)(¥)
-currency_code : CNY
-time_zone : China Standard Time
-utc_offset : +8
-date_format : {{vunblist |yyyy-mm-dd |''or'' yyyy{{lang|zh|年}}m{{lang|zh|月}}d{{lang|zh|日}} |(CE; CE-1949)}}
-drives_on : right
-cctld : {{vunblist| .cn |.中國 |.中国}}
-calling_code : +86
+image_1 : USDnotes.png
+image_title_1 : Federal Reserve Notes
+iso_code : USD (num. 840)
+unofficial_users =
+{{Collapsible list|titlestyle : font-weight:normal; background:transparent; text-align:left;
+title : 17 other countries
+{{flag|Afghanistan}}{{flag|Guatemala}}
 }}
+{{Collapsible list|titlestyle : font-weight:normal; background:transparent; text-align:left;
+title : 6 non-U.S. territories
+pegged_by =
+{{Collapsible list
+ |title : 23 currencies
+inflation_rate : 1.24 ;% November 2013
+inflation_source_date : [http://inflationdata.com/inflation/Inflation_Rate/HistoricalInflation.aspx?dsInflation_currentPage=0 inflationdata.com]''
+inflation_method : CPI
+subunit_ratio_1 : 1/10
+subunit_name_1 : Dime
+subunit_ratio_2 : 1/100
+subunit_name_2 : Cent
+subunit_ratio_3 : 1/1000
+subunit_name_3 : Mill (''used in accounting and by almost all gas stations'')
+nickname : Buck, bill, bean, paper, smackeroo, ducat, doubloon, dead president, smacker, and greenback. Plural: dough, green, bread, bones, simoleons, bananas, skrilla, (bank) clams, mint sauce {{Citation needed|reason=I've never heard mint sauce used to refer to money? Didn't find much on google either?|date=August 2013}}. Also, Washingtons, Jeffersons, Lincolns, Jacksons, Benjamins, Grants, and Hamiltons are used based on denomination; also peso in Puerto Rico, and piastre in Cajun Louisiana.
+frequently_used_coins : 1¢, 5¢, 10¢, 25¢
+rarely_used_coins : 50¢, $1
+coin_article : Coins of the United States dollar
+frequently_used_banknotes : $1, $5, $10, $20, $50, $100
+rarely_used_banknotes : $2Not Circulated: $500, $1,000, $5,000, $10,000, $100,000
+banknote_article : Federal Reserve Note
+issuing_authority : Federal Reserve System
+issuing_authority_website : www.federalreserve.gov
+printer : Bureau of Engraving and Printing
+printer_website : www.moneyfactory.gov
+mint : United States Mint
+mint_website : www.usmint.gov

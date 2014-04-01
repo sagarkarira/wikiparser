@@ -5,20 +5,22 @@ async.series([
   function(callback) {
     url = 'http://en.wikipedia.org/w/api.php?' + 
           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
-          'china';
+          'United States dollar';
 
     myUtil.get(url, function(url, content, status) {
       var json = eval('(' + content + ')').query.pages;
       var key  = null;
+      var wikiText = null;
       for (var i in json) { key = i; break; }
-      if (key != -1) {wikiText = json[key].revisions[0]['*'];}
-      callback(wikiText);
+      if (key != -1) {
+        wikiText = json[key].revisions[0]['*']; callback(wikiText);
+      }
     });
 
   }
 ], function(msg) {
 
-  var reg = new RegExp("{{Infobox(.|\n)*\n}}", "g");
+  var reg = new RegExp("{{Infobox(.|\n)*}}", "g");
   var text = reg.exec(msg)[0];
 
   // Remove comments.
@@ -37,7 +39,7 @@ async.series([
     if (temp.length === 2 && temp[1].trim() !== '') {
       // Get left part and right part.
       var item_name    = temp[0].trim(),
-          item_content = temp[1].trim();
+          item_content = temp[1].trim().split('\n')[0];
 
       // Extract all simple texts inside '[[ ]]', 
       // such as [[France]], [[Language French|French]], etc.
@@ -86,6 +88,18 @@ async.series([
             item_content = item_content.replace(substring, arr.join(',').replace('}}', ''));
           });
         }
+      }      
+
+      if (item_content.indexOf('{{vunblist') !== -1 && 
+          item_content.split('{{').length < 3) {
+        var find = item_content.match(/\{\{vunblist[^\}\}]*?\}\}/g);
+        if (find) {
+          find.forEach(function(substring) {
+            var arr = substring.split('|');
+            arr.shift();
+            item_content = item_content.replace(substring, arr.join(',').replace('}}', ''));
+          });
+        }
       }
 
       if (item_content.indexOf('{{hlist') !== -1) {
@@ -109,9 +123,12 @@ async.series([
       }
 
       // console.log('heck', item_content.match(/\{\{efn[^\}\}]*?\}\}/g));
-
+      item_content = replaceAll('&nbsp', ' ', item_content);
+      item_content = replaceAll('\n\}\}', '', item_content);
       console.log(item_name, ':', item_content);
+      // console.log(result);
     }
+    
   });
 });
 
