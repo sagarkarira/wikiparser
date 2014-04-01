@@ -88,6 +88,27 @@ async.series([
         }
       }
 
+      if (item_content.indexOf('{{hlist') !== -1) {
+        var find = item_content.match(/\{\{hlist[^\}\}]*?\}\}/g);
+        if (find) {
+          find.forEach(function(substring) {
+            var arr = substring.split('|');
+            arr.shift();
+            item_content = item_content.replace(substring, arr.join(',').replace('}}', ''));
+          });
+        }
+      }
+
+      if (item_content.indexOf('{{efn') !== -1) {
+        var find = item_content.match(/\{\{efn[^\}\}]*?\}\}/g);
+        if (find) {
+          find.forEach(function(substring) {
+            item_content = item_content.replace(substring, '');
+          });
+        }
+      }
+
+      // console.log('heck', item_content.match(/\{\{efn[^\}\}]*?\}\}/g));
 
       console.log(item_name, ':', item_content);
     }
