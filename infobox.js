@@ -125,7 +125,6 @@ async.series([
       item_content = replaceAll('&nbsp', ' ', item_content);
       item_content = replaceAll('\n\}\}', '', item_content);
       console.log(item_name, ':', item_content);
-      // console.log(result);
     }
     
   });
