@@ -5,7 +5,7 @@ async.series([
   function(callback) {
     url = 'http://en.wikipedia.org/w/api.php?' + 
           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
-          'France';
+          'china';
 
     myUtil.get(url, function(url, content, status) {
       var json = eval('(' + content + ')').query.pages;
@@ -21,18 +21,28 @@ async.series([
   var reg = new RegExp("{{Infobox(.|\n)*\n}}", "g");
   var text = reg.exec(msg)[0];
 
+  // Remove comments.
   text = replaceAll('<!--.*-->', '', text);
+  // Remove reference.
   text = replaceAll('<ref.*(/>|>.*</ref>)', '', text);
+  // Remove HTML tags.
   text = replaceAll('<[^>]+>', '', text);
-  text = replaceAll('{{refn.*}}\n', '\n', text);
+  // Remove page regerences.
+  text = replaceAll('\{\{refn[^\}\}]*?\}\}', '', text);
 
+  // Check each line in text.
   text.split('\n|').forEach(function(item) {
     var temp = item.split(' = ');
 
     if (temp.length === 2 && temp[1].trim() !== '') {
+      // Get left part and right part.
       var item_name    = temp[0].trim(),
           item_content = temp[1].trim();
-      var find = item_content.match(/(\[\[).*?(\]\])/g);
+
+      // Extract all simple texts inside '[[ ]]', 
+      // such as [[France]], [[Language French|French]], etc.
+      var find = item_content.match(/\[\[.*?\]\]/g);
+      // console.log(find);
       if (find) {
         find.forEach(function(substring) {
           var arr = substring.split('|');
@@ -45,6 +55,39 @@ async.series([
           }
         });
       }
+
+      // Remove font style
+      while (item_content.indexOf('{{nowrap|') !== -1) {
+        item_content = item_content.replace('{{nowrap|', '');
+        item_content = item_content.replace('}}', '');
+      }
+
+      while (item_content.indexOf('{{small|') !== -1) {
+        item_content = item_content.replace('{{small|', '');
+        item_content = item_content.replace('}}', '');
+      }
+
+      if (item_content.indexOf('{{native') !== -1) {
+        var find = item_content.match(/\{\{native[^\}\}]*?\}\}/g);
+        if (find) {
+          find.forEach(function(substring) {
+            var arr = substring.split('|');
+            item_content = item_content.replace(substring, arr[2]);
+          });
+        }
+      }      
+
+      if (item_content.indexOf('{{unbulleted') !== -1) {
+        var find = item_content.match(/\{\{unbulleted[^\}\}]*?\}\}/g);
+        if (find) {
+          find.forEach(function(substring) {
+            var arr = substring.split('|');
+            arr.shift();
+            item_content = item_content.replace(substring, arr.join(',').replace('}}', ''));
+          });
+        }
+      }
+
 
       console.log(item_name, ':', item_content);
     }
