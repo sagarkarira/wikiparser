@@ -5,7 +5,7 @@ async.series([
   function(callback) {
     url = 'http://en.wikipedia.org/w/api.php?' + 
           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
-          'United States dollar';
+          'france';
 
     myUtil.get(url, function(url, content, status) {
       var json = eval('(' + content + ')').query.pages;

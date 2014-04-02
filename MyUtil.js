@@ -11,10 +11,4 @@ MyUtil.prototype.get = function(url, callback) {
   });
 };
 
-MyUtil.prototype.parser = function(text, callback) {
-  callback(text);
-};
-
-
-
 module.exports = new MyUtil();
