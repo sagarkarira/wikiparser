@@ -1,4 +1,5 @@
-var myUtil = require('./myUtil.js'),
+var request = require('request'),
+    myUtil = require('./myUtil.js'),
     async  = require('async');
 
 async.series([
@@ -7,13 +8,14 @@ async.series([
           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
           'france';
 
-    myUtil.get(url, function(url, content, status) {
+    request(url, function(error, response, content) {
       var json = eval('(' + content + ')').query.pages;
       var key  = null;
       var wikiText = null;
       for (var i in json) { key = i; break; }
       if (key != -1) {
-        wikiText = json[key].revisions[0]['*']; callback(wikiText);
+        wikiText = json[key].revisions[0]['*']; 
+        callback(wikiText);
       }
     });
 
