@@ -9,9 +9,20 @@ Particularly, this parser only works for Infobox.
 
 	npm install
 
-## Run
+## Test
 
-	node infobox.js
+	mocha test
+
+## Usage
+
+```JavaScript
+var parser = require('../infobox.js');
+parser.parseWiki('france', function(err, result) {
+  console.log(result);
+  done(err);
+});
+```
+
 
 ## Result
 

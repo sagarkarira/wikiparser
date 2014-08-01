@@ -1,39 +1,49 @@
-var request = require('request'),
-    async  = require('async');
+var async = require('async'),
+    request = require('request');
 
-function WIKIPARSER(title) {
-
-  async.series([
-    function(callback) {
-      url = 'http://en.wikipedia.org/w/api.php?' + 
-            'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
-            title;
+function parseWiki(title, callback) {
+  async.waterfall([
+    function (cb) {
+      var url = 'http://en.wikipedia.org/w/api.php?' + 
+              'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
+              title;
 
       request(url, function(error, response, content) {
         var json   = eval('(' + content + ')').query.pages,
-            key    = null,
-            result = {};
+            key    = null;
 
         // Get page key.
         for (var i in json) { key = i; break; }
         
         // If result not found.
-        if (key == -1) { callback(null); }
+        if (key == -1) { cb(null); }
 
-        var wikiText = json[key].revisions[0]['*'],
-            reg      = new RegExp("{{Infobox(.|\n)*}}", "g"),
-            text     = reg.exec(wikiText)[0];
+        cb(null, json[key].revisions[0]['*']);
+      });
+    },
 
-        // Remove comments.
-        text = replaceAll('<!--.*-->', '', text);
-        // Remove reference.
-        text = replaceAll('<ref.*(/>|>.*</ref>)', '', text);
-        // Remove HTML tags.
-        text = replaceAll('<[^>]+>', '', text);
-        // Remove page regerences.
-        text = replaceAll('\{\{refn[^\}\}]*?\}\}', '', text);
+    function (content, cb) {
+      var reg    = new RegExp("{{Infobox(.|\n)*}}", "g"),
+          result = {};
 
-        // Check each line in text.
+      var text   = reg.exec(content);
+      if (text) {
+        text = text[0];
+      } else {
+        cb(null, null);
+      }
+
+      // Remove comments.
+      text = replaceAll('<!--.*-->', '', text);
+      // Remove reference.
+      text = replaceAll('<ref.*(/>|>.*</ref>)', '', text);
+      // Remove all HTML tags.
+      text = replaceAll('<[^>]+>', '', text);
+      // Remove page regerences.
+      text = replaceAll('\{\{refn[^\}\}]*?\}\}', '', text);
+
+      // Check each line in text.
+      if (text) {
         text.split('\n|').forEach(function(item) {
           var temp = item.split(' = ');
 
@@ -130,19 +140,43 @@ function WIKIPARSER(title) {
             item_content = replaceAll('&nbsp', ' ', item_content);
             item_content = replaceAll('\n\}\}', '', item_content);
             result[item_name] = item_content;
+            // console.log(item_name, ':', item_content);
           }
           
         });
-        callback(result);
-      });
+      }
+      cb(null, result);
     }
-  ], function(result) {
-    return JSON.stringify(result);
+  ], function (err, result) {
+    // console.log(JSON.stringify(result));
+    callback(err, result);
   });
-
-  function replaceAll(find, replace, str) {
-    return str.replace(new RegExp(find, 'gm'), replace).trim();
-  }
 }
 
-WIKIPARSER('france');
+function replaceAll(find, replace, str) {
+  if(str)
+    return str.replace(new RegExp(find, 'gm'), replace).trim();
+  else
+    return null;
+}
+
+// function queryAPI(title, callback) {
+//   var url = 'http://en.wikipedia.org/w/api.php?' + 
+//           'action=query&prop=revisions&rvprop=content&rvsection=0&format=json&titles=' +
+//           title;
+
+//   request(url, function(error, response, content) {
+//     var json   = eval('(' + content + ')').query.pages,
+//         key    = null;
+
+//     // Get page key.
+//     for (var i in json) { key = i; break; }
+    
+//     // If result not found.
+//     if (key == -1) { callback(null); }
+
+//     callback(null, json[key].revisions[0]['*']);
+//   });
+// }
+
+exports.parseWiki = parseWiki;
