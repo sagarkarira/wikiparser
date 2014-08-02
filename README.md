@@ -11,7 +11,7 @@ Particularly, this parser only works for Infobox.
 
 ## Test
 
-	mocha test
+	mocha --timeout 60000 --recursive -b --reporter spec
 
 ## Usage
 
