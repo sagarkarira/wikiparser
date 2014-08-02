@@ -1,5 +1,5 @@
 var assert = require("assert");
-var parseWiki = require('../lib/parseWiki');
+var parseWiki = require('../index');
 
 function checkJson(text) {
   if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').

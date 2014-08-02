@@ -11,15 +11,16 @@ Particularly, this parser only works for Infobox.
 
 ## Test
 
-	mocha --timeout 60000 --recursive -b --reporter spec
+	npm test
 
 ## Usage
 
 ```JavaScript
-var parser = require('../infobox.js');
-parser.parseWiki('france', function(err, result) {
+var parseWiki = require('wiki-infobox-parser');
+
+parseWiki('france', function(err, result) {
+	if (err) { console.error(err); }
   console.log(result);
-  done(err);
 });
 ```
 

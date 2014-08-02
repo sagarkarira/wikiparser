@@ -2,7 +2,7 @@
   "author": "Zhipeng Jiang <jesusjzp@gmail.com>",
   "name": "wiki-infobox-parser",
   "description": "Parser for wikipedia infobox.",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "main": "parser.js",
   "repository": {
     "type": "git",
@@ -26,12 +26,17 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "make test"
   },
   "keywords": [
     "Wikipedia",
     "Infobox",
     "Parser"
   ],
-  "license": "MIT"
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+    }
+  ]
 }
