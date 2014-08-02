@@ -1,7 +1,8 @@
 {
   "author": "Zhipeng Jiang <jesusjzp@gmail.com>",
   "name": "wiki-infobox-parser",
-  "version": "0.0.2",
+  "description": "Parser for wikipedia infobox.",
+  "version": "0.0.4",
   "main": "parser.js",
   "repository": {
     "type": "git",
@@ -17,7 +18,6 @@
     "mocha": "*"
   },
   "devDependencies": {},
-  "description": "README.md",
   "bugs": {
     "url": "https://github.com/jesusjzp/wikiparser/issues"
   },
