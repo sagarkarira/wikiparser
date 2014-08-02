@@ -36,6 +36,17 @@ describe('Wiki parser successfully.', function(done) {
 
 });
 
+describe('Wiki parser need to redirect.', function(done) {
+
+  it('should return redirection', function(done) {
+    parser.parseWiki('nodejs', function(err, result) {
+      assert.equal(true, JSON.stringify(result).indexOf('REDIRECT') > -1);
+      done(err);
+    });
+  });
+
+});
+
 describe('Wiki parser not found.', function(done) {
 
   it('should return Page Index Not Found', function(done) {

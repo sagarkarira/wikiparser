@@ -45,7 +45,9 @@ parser.parseWiki('france', function(err, result) {
 
 ## TODO
 
-- Multi languages support
+- Redirction
+- Multiple opetions redirection
+- Multiple languages support
 
 ## Reference
 
