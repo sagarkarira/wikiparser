@@ -1,9 +1,10 @@
 [Wikipedia Infobox](http://en.wikipedia.org/w/api.php) parser
 ======
 
-A simple parser in node.js for wikipedia markdown text.
+A simple parser in node.js for wikipedia markdown text. Particularly, this parser only works for Infobox.
 
-Particularly, this parser only works for Infobox.
+[More examples can be found here.](http://jesusjzp.github.io/blog/2014/08/01/wikipedia-infobox-parser/)
+
 
 ## Install
 
@@ -53,5 +54,4 @@ parseWiki('france', function(err, result) {
 ## Reference
 
 - [Wikipedia API](http://en.wikipedia.org/w/api.php)
-
 - [Syntax of Wiki Markup](http://en.wikipedia.org/wiki/Help:Wiki_markup)
