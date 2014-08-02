@@ -23,7 +23,6 @@ parser.parseWiki('france', function(err, result) {
 });
 ```
 
-
 ## Result
 
 	conventional_long_name : French Republic
@@ -43,6 +42,10 @@ parser.parseWiki('france', function(err, result) {
 	official_languages : French
 	demonym : French
 	...
+
+## TODO
+
+- Multi languages support
 
 ## Reference
 

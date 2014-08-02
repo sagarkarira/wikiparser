@@ -1,22 +1,37 @@
 {
-  "author"          : "Zhipeng Jiang <zhipeng@stoic.com>",
-  "name"            : "wikiparser",
-  "version"         : "0.0.1",
-  "readme"          : "README.md",
-  "main"            : "parser.js",
-  "repository"      : {
-    "type"          : "git",
-    "url"           : "https://github.com/jesusjzp/wikiparser.git"
+  "author": "Zhipeng Jiang <jesusjzp@gmail.com>",
+  "name": "wiki-infobox-parser",
+  "version": "0.0.2",
+  "main": "parser.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesusjzp/wikiparser.git"
   },
-  "engines"         : {
-    "node"          : "*",
-    "npm"           : "*"
+  "engines": {
+    "node": "*",
+    "npm": "*"
   },
-  "dependencies"    : {
-    "async"         : "*",
-    "request"       : "*",
-    "mocha"         : "*"
+  "dependencies": {
+    "async": "*",
+    "request": "*",
+    "mocha": "*"
   },
-  "devDependencies" : {
-  }
+  "devDependencies": {},
+  "description": "README.md",
+  "bugs": {
+    "url": "https://github.com/jesusjzp/wikiparser/issues"
+  },
+  "homepage": "https://github.com/jesusjzp/wikiparser",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "Wikipedia",
+    "Infobox",
+    "Parser"
+  ],
+  "license": "MIT"
 }
