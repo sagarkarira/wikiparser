@@ -15,21 +15,21 @@ describe('Wiki parser successfully.', function(done) {
 
   it('should return json data', function(done) {
     parseWiki('france', function(err, result) {
-      assert.equal(true, checkJson(JSON.stringify(result)));
+      assert.equal(true, checkJson(result));
       done(err);
     });
   });
 
   it('should return json data', function(done) {
     parseWiki('GitHub', function(err, result) {
-      assert.equal(true, checkJson(JSON.stringify(result)));
+      assert.equal(true, checkJson(result));
       done(err);
     });
   });
 
   it('should return json data', function(done) {
     parseWiki('Stoic_(film)', function(err, result) {
-      assert.equal(true, checkJson(JSON.stringify(result)));
+      assert.equal(true, checkJson(result));
       done(err);
     });
   });
@@ -40,7 +40,7 @@ describe('Wiki parser need to redirect.', function(done) {
 
   it('should return redirection', function(done) {
     parseWiki('nodejs', function(err, result) {
-      assert.equal(true, JSON.stringify(result).indexOf('REDIRECT') > -1);
+      assert.equal(true, result.indexOf('REDIRECT') > -1);
       done(err);
     });
   });
