@@ -2,7 +2,7 @@
   "author": "Zhipeng Jiang <jesusjzp@gmail.com>",
   "name": "wiki-infobox-parser",
   "description": "Parser for wikipedia infobox.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "parser.js",
   "repository": {
     "type": "git",
