@@ -13,7 +13,6 @@
     "npm": "*"
   },
   "dependencies": {
-    "async": "*",
     "request": "*",
     "mocha": "*"
   },
