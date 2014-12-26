@@ -9,7 +9,7 @@ module.exports = function(title, cb) {
                 'rvsection=0&',
                 'format=json',
                 '&titles=',
-                title].join('');
+                title,'&redirects'].join('');
 
   request(url, function(error, response, content) {
     if (error) {
